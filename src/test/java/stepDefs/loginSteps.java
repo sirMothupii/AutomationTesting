@@ -32,9 +32,8 @@ public class loginSteps
     {
         // Write code here that turns the phrase above into concrete actions
         driver = new ChromeDriver();
-        //data.put("EMAIL", "mothupi.ramalepe@sqs.com");
-        //data.put("PASSWORD", "mothupi@sqs");
-        driver.get("http://store.demoqa.com/");
+
+        driver.get("http://store.demoqa.com/products-page/your-account/");
 
     }
 
@@ -51,12 +50,14 @@ public class loginSteps
         //mapping data to allow for automation of the login
         loginPage = new loginPageObject(driver);
         data = new HashMap<String, String>();
-        data.put("Email", "mothupi.ramalepe@sqs.com");
-        data.put("Password", "mothupi@sqs");
+        data.put("USERNAME_OR_EMAIL_ADDRESS", "mothupi.ramalepe@sqs.com");
+        data.put("PASSWORD", "mothupi@sqs");
 
         loginPage.fill();
         Thread.sleep(3000); //wait
         throw new PendingException();
+
+        //homePage.clickHomeLink();
     }
 
     @When("^email \"([^\"]*)\"$")
